@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# User Management System
+
+A Next.js-based user management system that provides an intuitive interface for adding, updating, deleting, and importing users. The system leverages modern UI techniques (Tailwind CSS, Radix UI components) and a custom hook for seamless data fetching and state management.
+
+## Features
+
+- **User CRUD Operations:** Create, read, update, and delete users.
+- **File Import:** Import user data from an Excel file into the database.
+- **Sticky Header & Search:** A sticky header with form inputs and a search bar for quick access.
+- **Responsive Design:** Built with Tailwind CSS for a modern, responsive UI.
+- **Scroll-Up Button:** Appears when scrolled down (threshold: 150px) and allows smooth scrolling back to the top.
+- **Reusability:** Uses a custom hook (`useUsers`) for API interactions and a reusable delete confirmation dialog.
+
+## Dependencies
+
+Make sure you have the following dependencies installed (they should be listed in your `package.json`):
+
+- **Next.js & React:** `next`, `react`, `react-dom`
+- **Tailwind CSS:** `tailwindcss` (plus PostCSS and Autoprefixer as needed)
+- **MySQL Connection:** `mysql2`
+- **Excel Parsing:** `xlsx`
+- **Toast Notifications:** `sonner`
+- **Radix UI Accordion:** `@radix-ui/react-accordion`
+- **Utility Libraries:** (if used) `clsx`, `tailwind-merge`
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project on your local machine.
 
-```bash
+### Prerequisites
+
+- **Node.js:** Version 14 or above ([nodejs.org](https://nodejs.org/)).
+- **npm** or **yarn:** Package managers that come with Node.js.
+- **MySQL Database:** Ensure you have a running MySQL instance with valid credentials.
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Vadym-Teslytskyy/Test_node-next-JS.git
+   cd Test_node-next-JS
+
+2. **Install dependencies:**
+npm install sonner mysql2 xlsx @radix-ui/react-accordion
+# or
+yarn install sonner mysql2 xlsx @radix-ui/react-accordion
+
+3. **Configure Environment Variables:**
+Create a .env.local file in the root directory and add the following (modify according to your MySQL setup):
+
+DB_HOST=localhost
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=your_database_name
+
+4. **Run the development server:**
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. **Open your browser:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit http://localhost:3000 to view the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+your-repo/
+├── src/
+│   ├── app/
+│   │   ├── api/                 # API routes (users, uploadFile, etc.)
+│   │   ├── hook/                # Custom hooks (useUsers)
+│   │   └── page.tsx             # Main Users page
+│   ├── components/
+│   │   └── ui/                  # UI components (Button, Input, Table, AlertDialog, DeleteConfirmationDialog, etc.)
+│   └── lib/
+│       └── dataBaseConnection.ts# MySQL connection pool configuration
+├── public/                      # Static assets (images, icons, etc.)
+├── package.json
+└── README.md
 
-To learn more about Next.js, take a look at the following resources:
+## Usability
+### Simple Setup: 
+ The system provides an easy-to-use interface to manage users with minimal configuration.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Real-Time Feedback: 
+ Users receive immediate feedback via toast messages for actions like adding, updating, and deleting.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Accessible & Responsive:
+ Designed with accessibility and responsiveness in mind, ensuring a smooth experience across devices.
 
-## Deploy on Vercel
+### Modular & Maintainable:
+ With a clear separation between UI components and business logic (via custom hooks and reusable components), the system is easy to extend and maintain.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request with your suggestions or improvements.
