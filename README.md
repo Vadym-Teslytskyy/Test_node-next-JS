@@ -106,3 +106,4 @@ Visit http://localhost:3000 to view the application.
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request with your suggestions or improvements.
+Here is the Trello board for current and future work: https://trello.com/invite/b/67e975ee002e3d956828bcd8/ATTI3f72dd2a3a8670d04ccb581ad54d26b775B1F5BF/user-managment-project
