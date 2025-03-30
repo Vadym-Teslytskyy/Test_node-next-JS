@@ -1,44 +1,61 @@
-import { NextRequest, NextResponse } from 'next/server';
-import pool from '@/app/lib/dataBaseConnection';
+import { NextRequest, NextResponse } from "next/server";
+import { getAllUsers, createUser, deleteAllUsersService } from "@/app/services/userService";
 
 /**
  * GET /api/users
  *
- * Retrieves all users from the database.
+ * Retrieves all users.
  *
- * @returns A JSON response containing an array of user records.
+ * @returns NextResponse with an array of users or an error message.
  */
 export async function GET() {
-  const [rows] = await pool.query("SELECT * FROM users");
-  return NextResponse.json(rows);
+  try {
+    const users = await getAllUsers();
+    return NextResponse.json(users);
+  } catch (error: any) {
+    console.error("Route GET error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
 
 /**
  * POST /api/users
  *
- * Creates a new user record.
- *
- * Expects a JSON body with the properties:
+ * Creates a new user.
+ * Expects a JSON payload with:
  * - name: string
  * - email: string
  *
- * @param req - The NextRequest containing the JSON body.
- * @returns A JSON response indicating success.
+ * @param req - The NextRequest object containing the JSON payload.
+ * @returns NextResponse with a success message or an error message.
  */
 export async function POST(req: NextRequest) {
-  const { name, email } = await req.json();
-  await pool.query("INSERT INTO users (name, email) VALUES (?, ?)", [name, email]);
-  return NextResponse.json({ message: 'User added' });
+  try {
+    const { name, email } = await req.json();
+    if (!name || !email) {
+      return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
+    }
+    await createUser(name, email);
+    return NextResponse.json({ message: "User added successfully" });
+  } catch (error: any) {
+    console.error("Route POST error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
 
 /**
  * DELETE /api/users
  *
- * Deletes all user records from the database.
+ * Deletes all users.
  *
- * @returns A JSON response indicating that all users were deleted.
+ * @returns NextResponse with a success message or an error message.
  */
 export async function DELETE() {
-  await pool.query("DELETE FROM users");
-  return NextResponse.json({ message: 'All users deleted' });
+  try {
+    await deleteAllUsersService();
+    return NextResponse.json({ message: "All users deleted successfully" });
+  } catch (error: any) {
+    console.error("Route DELETE error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
