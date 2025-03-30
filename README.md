@@ -42,12 +42,17 @@ Follow these steps to run the project on your local machine.
    cd Test_node-next-JS
 
 2. **Install dependencies:**
-npm install sonner mysql2 xlsx @radix-ui/react-accordion
-or
-yarn install sonner mysql2 xlsx @radix-ui/react-accordion
+```bash
+    npm install sonner mysql2 xlsx @radix-ui/react-accordion
+```
+<br>or<br>
+```bash
+    yarn install sonner mysql2 xlsx @radix-ui/react-accordion
+```
 
 3. **Configure Environment Variables:**
-Create a .env.local file in the root directory and add the following (modify according to your MySQL setup):
+<br>
+Create a .env.local file in the root directory and add the following (modify according to your MySQL setup):<br>
 
 DB_HOST=localhost  <br>
 DB_USER=your_mysql_username  <br>
@@ -55,9 +60,13 @@ DB_PASSWORD=your_mysql_password  <br>
 DB_NAME=your_database_name  <br>
 
 4. **Run the development server:**
-npm run dev
-or
-yarn dev
+```bash
+    npm run dev
+```
+<br>or<br>
+```bash
+    yarn dev
+```
 
 5. **Open your browser:**
 
