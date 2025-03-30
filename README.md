@@ -43,20 +43,20 @@ Follow these steps to run the project on your local machine.
 
 2. **Install dependencies:**
 npm install sonner mysql2 xlsx @radix-ui/react-accordion
-# or
+or
 yarn install sonner mysql2 xlsx @radix-ui/react-accordion
 
 3. **Configure Environment Variables:**
 Create a .env.local file in the root directory and add the following (modify according to your MySQL setup):
 
-DB_HOST=localhost
-DB_USER=your_mysql_username
-DB_PASSWORD=your_mysql_password
-DB_NAME=your_database_name
+DB_HOST=localhost  <br>
+DB_USER=your_mysql_username  <br>
+DB_PASSWORD=your_mysql_password  <br>
+DB_NAME=your_database_name  <br>
 
 4. **Run the development server:**
 npm run dev
-# or
+or
 yarn dev
 
 5. **Open your browser:**
@@ -65,19 +65,22 @@ Visit http://localhost:3000 to view the application.
 
 ## Project Structure
 
-your-repo/
-├── src/
-│   ├── app/
-│   │   ├── api/                 # API routes (users, uploadFile, etc.)
-│   │   ├── hook/                # Custom hooks (useUsers)
-│   │   └── page.tsx             # Main Users page
-│   ├── components/
-│   │   └── ui/                  # UI components (Button, Input, Table, AlertDialog, DeleteConfirmationDialog, etc.)
-│   └── lib/
-│       └── dataBaseConnection.ts# MySQL connection pool configuration
-├── public/                      # Static assets (images, icons, etc.)
-├── package.json
-└── README.md
+``` text
+
+    your-repo/
+    ├── src/
+    │   ├── app/
+    │   │   ├── api/                 # API routes (users, uploadFile, etc.)
+    │   │   ├── hook/                # Custom hooks (useUsers)
+    │   │   └── page.tsx             # Main Users page
+    │   ├── components/
+    │   │   └── ui/                  # UI components (Button, Input, Table, AlertDialog, DeleteConfirmationDialog, etc.)
+    │   └── lib/
+    │       └── dataBaseConnection.ts# MySQL connection pool configuration
+    ├── public/                      # Static assets (images, icons, etc.)
+    ├── package.json
+    └── README.md
+```
 
 ## Usability
 ### Simple Setup: 
